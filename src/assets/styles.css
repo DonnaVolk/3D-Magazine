@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap");
+#root {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(#ffffff, #a6a6a6 80%);
+}
+
+body {
+  margin: 0;
+}
+
+.outline-text {
+  -webkit-text-stroke: 1px black;
+}
+
+.main-container {
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.main-container .rotating-circle {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 75px;
+  right: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.main-container .scroll-container {
+  width: 100%;
+  overflow: auto;
+  pointer-events: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container .scroll-container .button-container {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  padding: 2.5rem;
+}
+
+.main-container .scroll-container .button-container .button {
+  border: 1px solid transparent;
+  transition: all 0.3s;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.main-container .scroll-container .button-container .button:hover {
+  background-color: #000000;
+}
+
+.main-container .scroll-container .button-container .button.active {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000000;
+}
+
+.main-container .scroll-container .button-container .button.invisible {
+  visibility: hidden;
+}
+
+/* Scrolling text */
+.scrolling-text {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  transform: rotate(-2deg);
+  user-select: none;
+}
+
+.scrolling-text .text-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  white-space: nowrap;
+  padding: 0 2rem;
+  width: max-content;
+}
+
+.scrolling-text .text-row h2 {
+  text-transform: uppercase;
+}
+
+.scrolling-text .text-row h2.full-text {
+  color: #000000;
+  font-size: 12rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.scrolling-text .text-row h2.outline-text {
+  font-size: 12rem;
+  font-weight: bold;
+  font-style: italic;
+  -webkit-text-stroke: 2px #000000;
+  color: transparent;
+}
+
+/* Animaties */
+@keyframes horizontal-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes horizontal-scroll-2 {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-horizontal-scroll {
+  animation: horizontal-scroll 35s linear infinite;
+}
+
+.animate-horizontal-scroll-2 {
+  animation: horizontal-scroll-2 35s linear infinite;
+}
